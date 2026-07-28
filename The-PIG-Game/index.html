@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThePigGame</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>git
+        <h1>The PIG Game</h1>
+    </header>
+    <main>
+        <section class="left player-0 active-player">
+            <div class="left-section">
+                <img src="Assets/user-svgrepo-com.svg" class="user-svg" alt="user-svg">
+                <p class="section-header left-header"> Player 1</p>
+            </div>
+            <p class="score left-score score-0">0</p>
+            <div class="section-container left-container">
+                <p class="left-container-text">Current Score</p>
+                <div class="left-current-score">0</div>
+            </div>
+        </section>
+        <section class="middle">
+            <button class="btn btn-newgame">🔄️New Game</button>
+            <img src="Assets/dice-6.png" class ="dice-image">
+            <button class="btn btn-rolldice">🎲Roll Dice</button>
+            <button class="btn btn-hold">✋Hold</button>
+        </section>
+        <section class="right player-1">
+            <div class="right-section">
+                <img src="Assets/user-svgrepo-com.svg" class="user-svg" alt="user-svg">
+                <p class="section-header right-header"> Player 2</p>
+            </div>
+            <p class="score right-score score-1">0</p>
+            <div class="section-container right-container">
+                <p class="right-container-text">Current Score</p>
+                <div class="right-current-score">0</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="footer-text">---- First to 50 Score Wins ----</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
