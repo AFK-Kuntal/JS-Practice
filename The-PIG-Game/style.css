@@ -127,3 +127,6 @@ main section{
     background-color: #d1d0d0;
     box-shadow: inset -3px -2px 5px 0px black;
 }
+.winner{
+    background-color: greenyellow;
+}
