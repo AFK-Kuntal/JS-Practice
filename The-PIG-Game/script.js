@@ -1,19 +1,17 @@
 "use strict";
 
-let play = true;
-let diceNumber = 0;
-
 const player0el = document.querySelector(".player-0");
 const player1el = document.querySelector(".player-1");
 const score0 = document.querySelector(".score-0");
 const score1 = document.querySelector(".score-1");
-const currScore0 = document.querySelector(".left-current-score");
-const currScore1 = document.querySelector(".right-current-score");
+const currScore0 = document.querySelector(".current-0");
+const currScore1 = document.querySelector(".current-1");
 const rollDice = document.querySelector(".btn-rolldice");
 const diceImg = document.querySelector(".dice-image");
 const holdBtn = document.querySelector(".btn-hold");
 const newBtn = document.querySelector(".btn-newgame");
 
+let diceNumber = 0;
 let scores,activePlayer,currentScore, playing;
 const initialize = function(){
     scores = [0, 0];
@@ -36,7 +34,7 @@ initialize();
 const switchPlayer = function() {
     currentScore = 0;
     document.querySelector(`.score-${activePlayer}`).textContent = currentScore;
-    activePlayer === 0 ? 1 : 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
     player0el.classList.toggle("active-player");
     player1el.classList.toggle("active-player");
 }
@@ -56,11 +54,23 @@ rollDice.addEventListener("click", ()=>{
 holdBtn.addEventListener("click", ()=>{
     if(playing) {
         scores[activePlayer] += currentScore;
+            document.querySelector(`.current-${activePlayer}`).textContent = scores[activePlayer];
+
         if(scores[activePlayer] >= 50) {
             playing = false;
-            document.querySelector(".active-player").classList.add("winner");
-            document.querySelector(".active-player").classList.remove("active-player");
-            `score-${activePlayer}`.textContent = '🏆';
+
+            document
+            .querySelector(`.player-${activePlayer}`)
+            .classList.remove("active-player");
+
+            document
+            .querySelector(`.player-${activePlayer}`)
+            .classList.add("winner");
+
+            document
+            .querySelector(`.score-${activePlayer}`)
+            .textContent = '🏆';
+
         }else {
             switchPlayer();
         }

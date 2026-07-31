@@ -87,17 +87,17 @@ main section{
 .right-container-text {
     font-size: 2rem;
 }
-.left-current-score ,
-.right-current-score{
+.current-0,
+.current-1{
     background-color: white;
     border-radius: 5px;
     font-size: 8rem;
     width: 90%;
 }
-.left-current-score {
+.current-0 {
     background-color: rgb(211, 70, 108);
 }
-.right-current-score{
+.current-1{
     background-color: rgb(75, 130, 219);
 }
 .btn {
