@@ -116,7 +116,7 @@ main section{
     height: auto;
     margin: 0 auto;
     box-shadow: -1px 2px 5px #918d8d;
-    border-radius: 39px;
+    border-radius: 35px;
 }
 .footer-text{
     font-size: 3rem;
@@ -129,4 +129,29 @@ main section{
 }
 .winner{
     background-color: greenyellow;
+}
+
+@media only screen and (max-width:1224px) {
+    main {
+        flex-direction: column;
+        width: 100%;
+    }
+    .left,.right, .middle {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .dice-image {
+        width: 22%;
+    }
+    .section-header {
+        font-size: 3rem;
+    }
+    header h1 {
+        font-size: 4rem;
+    }
+    .footer-text {
+        font-size: 2rem;
+    }
 }
