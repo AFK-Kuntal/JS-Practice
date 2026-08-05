@@ -138,8 +138,12 @@ main section{
 .winner{
     background-color: greenyellow;
 }
-
-@media only screen and (max-width:1224px) {
+@media only screen and (max-width: 1100px) {
+    main {
+        width: 100%;
+    }
+}
+@media only screen and (max-width:750px) {
     main {
         flex-direction: column;
         width: 100%;
