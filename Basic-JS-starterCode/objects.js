@@ -72,3 +72,12 @@ restaurant.order(0, 2);
 console.log(restaurant);
 if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 if(restaurant.order ?.(0, 1) ?? "no order");
+console.log(Object.keys(restaurant));
+console.log(Object.values(restaurant));
+console.log("restaurant entries")
+console.log(Object.entries(restaurant));
+for(const x of Object.entries(restaurant)) {
+    console.log(`${x[0]} : ${x[1]}`);
+}
+for(const [key, {open, close}] of Object.entries(openingHours))  //array destructure
+    console.log(`On ${key} open at ${open} and close at ${close}`);
