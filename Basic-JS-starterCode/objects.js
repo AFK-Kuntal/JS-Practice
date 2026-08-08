@@ -38,3 +38,37 @@ console.log(obj);
 console.log(`birthyear ${obj.year}`);
 
 obj.getSummary();
+
+//object literals
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri','sat', 'sun'];
+const openingHours = {
+    [weekdays[0]]: {
+        open: 12,
+        close: 22,
+    },
+    [weekdays[1]]: {
+        open: 11,
+        close: 23,
+    },
+    [`${2 + 3}th day`]: {
+        open: 0, 
+        close: 24,
+        },
+};
+const restaurant = {
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italjan', 'Pizzeria', 'Vegetarian',
+    'Organic'],
+    openingHours, // openingHours = openingHours
+    starterMenu: ['Focaccia', 'Bruschetta', 'GarlicBread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    order(starterIndex, mainIndex) {
+        console.log(`starter-${this.starterMenu[starterIndex]} mainCourse-${this.mainMenu[mainIndex]}`);
+    }
+
+};
+restaurant.order(0, 2);
+console.log(restaurant);
+if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+if(restaurant.order ?.(0, 1) ?? "no order");

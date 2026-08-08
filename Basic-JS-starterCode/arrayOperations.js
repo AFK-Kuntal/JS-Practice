@@ -1,13 +1,13 @@
+
 const restaurant = {
-name: 'Classico Italiano',
-location: 'Via Angelo Tavanti 23, Firenze, Italy',
-categories: ['Italjan', 'Pizzeria', 'Vegetarian',
-'Organic'],
-starterMenu: ['Focaccia', 'Bruschetta', 'GarlicBread', 'Caprese Salad'],
-mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italjan', 'Pizzeria', 'Vegetarian',
+    'Organic'], 
+    starterMenu: ['Focaccia', 'Bruschetta', 'GarlicBread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
 };
-
 let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
 [main, secondary] = [secondary, main];
@@ -60,3 +60,22 @@ add(2,3);
 add(5, 3, 7, 2);
 add(8, 2, 5, 3, 2, 1, 4);
 add(...newArr) //spread->unpacking the values
+
+const [p, q, ...rem] = [1, 3, ...arr];  //right side of the operator-->spread, left side of the operator-->rest
+console.log(p, q, rem);
+const newarr = [...newArr];
+console.log(newarr);
+
+const menu = [...restaurant.starterMenu, ... restaurant.mainMenu];
+for (const item of menu) console.log(item);
+for (const [fristItem, secondItem] of menu.entries()) {
+    // console.log(menu.entries());
+    // console.log(item);
+    // console.log(`${item[0] +1}: ${item[1]}`)
+    console.log(fristItem + " : " + secondItem );
+}
+
+const user = [
+    {name : "ABC", email : "abc@gmail.com"}
+];
+console.log(user[0] ?.name ?? "no name set");
