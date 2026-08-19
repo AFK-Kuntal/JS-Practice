@@ -79,3 +79,24 @@ const user = [
     {name : "ABC", email : "abc@gmail.com"}
 ];
 console.log(user[0] ?.name ?? "no name set");
+
+const newArr2 = [2, 3, 4, 5, 6];
+console.log(newArr2.slice(1));
+console.log(newArr2.slice(1, -1));
+console.log(newArr2.slice(-1));
+console.log("ater slicing" , newArr);
+
+console.log(newArr2.splice(2,3)) //mutates the array-start,count
+console.log("after splice", newArr);
+console.log(newArr2.join('-'));
+const l = newArr2.concat([2,3,4]);
+console.log(l);
+console.log("before reverse", newArr2);
+console.log(newArr2.reverse()); //mutates the array
+console.log("after the reverse", newArr2)
+
+//For Each loop(element, index, array);
+newArr.forEach((ele, i, arr)=> {
+    console.log(`iterating at ${i + 1} -> ${ele} of ${arr} array`);
+    //we can't stop the loop in a mid way using any other condition like the other loops
+})
