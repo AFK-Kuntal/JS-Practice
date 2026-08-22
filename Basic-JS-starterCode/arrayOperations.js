@@ -100,3 +100,25 @@ newArr.forEach((ele, i, arr)=> {
     console.log(`iterating at ${i + 1} -> ${ele} of ${arr} array`);
     //we can't stop the loop in a mid way using any other condition like the other loops
 })
+//Map Method(element, index, array)
+//unlike Foreach method map return a new array.
+const newArrMap = newArr.map(function(ele, i, arr) {
+    return `iterating at ${i + 1} -> ${ele} of ${arr} array`;  //can't just simply write console.log here as map return new array
+})
+console.log(newArrMap);
+
+const mapArr = newArr.map(ele => ele * 2);
+console.log(mapArr);
+
+// Filter Method(element, index, array) also returns a new array
+const filterArr = newArr.filter((ele, i, arr) => ele > 5); //i and arr is optional here
+console.log(filterArr);
+
+//Reduce Method(Accumulator, element, index, array)
+const reduceArr = newArr.reduce((acc, ele) => acc + ele , 0); //0 -> is the value of accumulator set
+console.log(`total value of the array is ${reduceArr}`);
+const reduceArr2 = newarr.reduce((acc, ele) => {
+    if(ele > acc) return ele;
+    else return acc;
+}, newArr[0]);
+console.log(`largest element ${reduceArr2}`);
