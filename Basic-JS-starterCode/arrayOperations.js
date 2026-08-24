@@ -114,7 +114,12 @@ console.log(mapArr);
 const filterArr = newArr.filter((ele, i, arr) => ele > 5); //i and arr is optional here
 console.log(filterArr);
 
+//Find Method -> returns the first element which satisfies the condition -> returns a value unlike filter which returns all the values when condition is met
+const findInArr = newArr.find(ele => ele > 5);
+console.log(findInArr);
+
 //Reduce Method(Accumulator, element, index, array)
+//doesn't return an array returns a value
 const reduceArr = newArr.reduce((acc, ele) => acc + ele , 0); //0 -> is the value of accumulator set
 console.log(`total value of the array is ${reduceArr}`);
 const reduceArr2 = newarr.reduce((acc, ele) => {
@@ -122,3 +127,138 @@ const reduceArr2 = newarr.reduce((acc, ele) => {
     else return acc;
 }, newArr[0]);
 console.log(`largest element ${reduceArr2}`);
+
+//find and findindex method
+const users = [
+  { id: 1, name: 'Alice', active: false },
+  { id: 2, name: 'Bob', active: true },
+  { id: 3, name: 'Charlie', active: true }
+];
+
+const activeUser = users.find(user => user.active === true);
+console.log(activeUser); 
+
+const activeUserIndex = users.findIndex(user => user.active === true);
+console.log(activeUserIndex); 
+
+//some and every method
+console.log(newArr.some(ele => ele >= 5)); //if only one element satisfies the condition
+console.log(newArr.every(ele => ele >= 5)); //if only all element satisfies the condition
+
+//flat and flatmap method
+//flat->flattens the array flat(depth)
+const arr1 = [1, 2, [3, 4]];
+console.log(arr1.flat()); //default depth is 1
+
+const arr2 = [1, [2, [3, [4]]]];
+console.log(arr2.flat())
+console.log(arr2.flat(2)); 
+
+const arr3 = [1, , 2, [3, [4, 5]]];
+console.log(arr3.flat(Infinity)); 
+//flatmap->The flatMap() method combines the functionality of map() and flat() into a single, high-performance operation. It first runs a mapping function over each element, and then flattens the result by exactly 1 level.we can't select the depth level explicitely.
+const sentences = ["Hello world", "JavaScript is fun"];
+
+// const words = sentences
+//     .map(str => str.split(" "))
+//     .flat()
+//     .join(" and "); //output->[['Hello', 'world'], ['JavaScript', 'is', 'fun']]
+// console.log(words); 
+
+const words = sentences
+    .flatMap(str => str.split(" "))
+    .join(" and ");
+console.log(words);
+
+//sorting -> mutates the array
+
+/*
+sorting → mutates the original array
+Negative value (< 0): a should be placed BEFORE b 
+Positive value (> 0): b should be placed BEFORE a
+Zero (0): a and b are considered equal for sorting
+
+The return value does NOT literally mean "swap" or "don't swap".It tells sort() which element should come first.
+*/
+
+const numbers = [40, 100, 1, 5, 25];
+
+// console.log(numbers.sort());
+// Without a comparison function, sort() converts elements to strings and sorts them according to their string/Unicode order.
+// output: [1, 100, 25, 40, 5]
+
+console.log(numbers);
+// ASCENDING ORDER
+// Smaller → Larger
+
+numbers.sort((a, b) => {
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+});
+
+console.log(numbers);
+// [1, 5, 25, 40, 100]
+
+// DESCENDING ORDER
+// Larger → Smaller
+
+numbers.sort((a, b) => {
+    if (a > b) return -1;
+    if (a < b) return 1;
+    return 0;
+});
+
+console.log(numbers);
+// [100, 40, 25, 5, 1]
+// SHORTCUT FOR ASCENDING ORDER
+
+numbers.sort((a, b) => a - b);
+/*
+a > b → a - b is POSITIVE
+       → b should come before a
+
+a < b → a - b is NEGATIVE
+       → a should come before b
+
+Therefore:
+smaller → larger
+*/
+console.log(numbers);
+// [1, 5, 25, 40, 100]
+
+// SHORTCUT FOR DESCENDING ORDER
+
+numbers.sort((a, b) => b - a);
+/*
+a > b → b - a is NEGATIVE
+       → a should come before b
+
+a < b → b - a is POSITIVE
+       → b should come before a
+
+Therefore:
+larger → smaller
+*/
+console.log(numbers);
+// [100, 40, 25, 5, 1]
+
+// ASCENDING  → a - b → smaller → larger
+// DESCENDING → b - a → larger → smaller
+
+
+//ways to create arrays
+// const nArr = new Array();//creates empty array
+const aa = new Array(1, 3, 4, 5, 6, 7);
+console.log(aa);
+const nArr = new Array(5); //creates an empty array of size 5
+// console.log(nArr.map(() => 5)); //can't use map to fill this
+console.log(nArr); 
+console.log(nArr.fill(0)); //fill(value, start, end) mutates the array
+console.log(nArr.fill(10, 1, 3));
+
+const bb = Array.from("hello");
+console.log(bb);
+const uniqueNumbers = Array.from(new Set([1, 2, 2, 3])); // [1, 2, 3]
+const range = Array.from({ length: 5 }, (_, index) => index); //(value, index) => index 
+console.log(range);
