@@ -7,6 +7,7 @@ const Employee = function(id, firstName, lastName) {  //constructor function (Em
     this.firstName = firstName;
     this.lastName = lastName;
 };
+
 Employee.status = function() { //static method
     console.log("constructor class created");
     console.log(this);
@@ -22,6 +23,8 @@ Employee.status();
 */
 console.log(john); //this refers to this object
 console.log(john instanceof Employee);
+
+
 //Prototype
 console.log(typeof Employee);
 console.log(Employee.prototype);
@@ -64,6 +67,8 @@ const h1 = document.querySelector("h1");
 console.log(h1);
 console.dir(h1); //prototype chain in the console
 
+
+
 //ES6 Classes
 // const Person = class{} //class expression
 //class declaration
@@ -102,12 +107,20 @@ const animal = {
     console.log("Nom nom nom");
   }
 };
-
 const dog = Object.create(animal);
 dog.breed = "Golden Retriever";
-
-
 console.log(dog.breed);   // "Golden Retriever" (Its own property)
 console.log(dog.isAlive); // true (Inherited from animal!)
 dog.eat();                // "Nom nom nom" (Inherited method)
 console.log(dog.__proto__);
+
+
+//Inheritance
+
+const Department = function(id, first, last, dep) {
+    Employee.call(this, id, first, last);
+    this.dep = dep;
+}
+Department.prototype = Object.create(Employee.prototype); //linking the prototypes
+const em1 = new Department(100, "walter", "white", "SDE");
+em1.showDetails();
