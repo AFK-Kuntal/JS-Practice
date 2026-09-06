@@ -112,6 +112,10 @@ dog.breed = "Golden Retriever";
 console.log(dog.breed);   // "Golden Retriever" (Its own property)
 console.log(dog.isAlive); // true (Inherited from animal!)
 dog.eat();                // "Nom nom nom" (Inherited method)
+animal.status = function() {
+    console.log(`Class created with object.create`);
+}
+dog.status();
 console.log(dog.__proto__);
 
 
@@ -124,3 +128,54 @@ const Department = function(id, first, last, dep) {
 Department.prototype = Object.create(Employee.prototype); //linking the prototypes
 const em1 = new Department(100, "walter", "white", "SDE");
 em1.showDetails();
+//ES6 Inheritance
+class Student extends Person {
+    constructor(firstName, lastName, birthYear, course) {
+        super(firstName, lastName, birthYear); //super have to be the first here
+        this.course = course;
+    }
+    //as we are declaring a new parameter thats why we have to set the constructor method and call super method(which call the parent class) o/w we don't have to create the constructor method if the parameters are same in both parent and child class and also don't need to call super as it will be executed automatically then
+    personInfo() {
+        console.log(`${this.firstName} ${this.lastName} is of ${2026 - this.birthYear} years studing ${this.course}`);
+    }
+}
+const jay = new Student("Jay", "Davis", "2002", "CSE");
+jay.personInfo(); //this method was both present in parent and child class but due to inheritance chain the child class method will execute
+
+//Public,Private,Protected
+class Account {
+    locale = navigator.language; //public
+    movements = [];
+    #pin; //private
+    constructor(owner, pin) {
+        this.owner = owner;
+        this.#pin = pin;
+        // this.locale = navigator.language;
+        // this.movements = [];
+        this.currency = "USD";
+        this._origin = "IN"; //protected->it's a syntax that symbolizes that this should not be accessed outside the class(developers are used to this practice) though it is accessible outside the class
+    }
+    deposite(val) {
+        this.movements.push(val);
+        return this;
+    }
+    withdraw(val) {
+        this.deposite(-val);
+        return this;
+    }
+
+    #approveLoan(val) {
+        if(val > 0) return true;
+    }
+
+    requestLoan(val) {
+        this.#approveLoan(val) ? console.log("will be credited") : console.log("can't process");
+    }
+}
+const acc = new Account("acc", 1111);
+console.log(acc);
+// console.log(acc.#pin); //can't access outside the class
+// console.log(acc.#approveLoan(100)); //can't access outside the class
+acc.requestLoan(100);
+console.log(acc._origin);
+acc.deposite(100).deposite(200).withdraw(100).requestLoan(100); //not possible as these methods dont' return anything,for the chaining to work we need to return this
