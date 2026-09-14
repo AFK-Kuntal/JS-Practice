@@ -178,4 +178,4 @@ console.log(acc);
 // console.log(acc.#approveLoan(100)); //can't access outside the class
 acc.requestLoan(100);
 console.log(acc._origin);
-acc.deposite(100).deposite(200).withdraw(100).requestLoan(100); //not possible as these methods dont' return anything,for the chaining to work we need to return this
+acc.deposite(100).deposite(200).withdraw(100).requestLoan(100); //not possible as these methods dont' return anything,for the chaining to work we need to return this    
