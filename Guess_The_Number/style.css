@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+html {
+    box-sizing: border-box;
+    font-size: 65%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+body {
+    background-color: #232323;
+    font-family: "Press Start 2P","sans-sarif";
+    color: white;
+}
+
+/* header part */
+header{
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;    
+}
+.header-top{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 10%;
+}
+.score-text {
+    font-size: 1.3rem;
+}
+.btn {
+    background-color: white;
+    font-family: "Press Start 2P","sans-sarif";
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.again {
+    padding: 12px 15px;
+    font-size: 2rem;
+}
+.header-text{
+    margin: 0 auto;
+    font-size: 4rem;
+    position: relative;
+    top: 40%;
+    text-align: center;
+}
+.number{
+    height: 120px;
+    width: 140px;
+    padding: 10px;
+    font-size: 6rem;
+    background-color: white;
+    color: #232323;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 75%;
+    margin: 0 auto;
+}
+
+.divider {
+    background-color: white;
+    width: 100%;
+    height: 10px;
+}
+
+/* main part */
+main{
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 50%;
+}
+.input-field{
+    width: 300px;
+    padding: 25px;
+    font-family: "Press Start 2P", "sans-sarif";
+    font-size: 4rem;
+    background-color: #232323;
+    border: 4px solid white;
+    text-align: center;
+    color: white;
+    
+}
+.click {
+    padding: 21px;
+    font-size: 3rem;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+.right p{
+    font-size: 2rem;
+}
+
